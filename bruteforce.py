@@ -1,11 +1,11 @@
 import requests
 from termcolor import colored
 
-url = input('[+] Sitenin linkini girin: ')
-kullanici = input('[-] Hesabın kullanıcı adını girin: ')
-sifre_dosyasi = input('[-] kullanmak istediğiniz şifre dosyasını seçin: ')
-giris_basarisiz_sozcugu = input('[-] Giriş başarılı olmadığında çıkan cümleyi yazın: ')
-cerez_adi = input('[-]Site sayfasında ki cookie değerini girin (Opsiyonel) \n cookie değeri almayı bilmiyorsan; \n https://www.cookieyes.com/how-to-check-cookies-on-your-website-manually/ : ')
+url = input('[+] Link of the website ')
+kullanici = input('[-] username  ')
+sifre_dosyasi = input('[-] put the password.txt file in here ')
+giris_basarisiz_sozcugu = input('[-] the output when its failed to bruteforce ')
+cerez_adi = input('[-] put the cookie value on the website (Optional) \n if you dont know how to take cookie value; \n https://www.cookieyes.com/how-to-check-cookies-on-your-website-manually/ : ')
 
 def cozum(kullanici,url):
     for sifre in sifreler:
@@ -21,8 +21,8 @@ def cozum(kullanici,url):
         if giris_basarisiz_sozcugu in geri_donus.content.decode():
             pass
         else:
-            print(colored(('Kullanıcı bulundu !! ==> ' + kullanici), 'green'))
-            print(colored(('Sifre Bulundu !!  ==> ' + sifre), 'green'))
+            print(colored(('username found !! ==> ' + kullanici), 'green'))
+            print(colored(('password found!!  ==> ' + sifre), 'green'))
             exit()
 
 
@@ -30,4 +30,4 @@ def cozum(kullanici,url):
 with open(sifre_dosyasi,'r') as sifreler:
     cozum(kullanici,url)
 
-print(colored((' BAŞARAMADIN! ==> Sifre, bu liste dosyasında bulunamadı. '), 'red'))
+print(colored((' FAİLED! ==> password couldnt contain on this txt file '), 'red'))
